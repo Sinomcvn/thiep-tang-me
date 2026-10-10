@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffe6ef">
+<title>Gửi Mẹ Yêu - 20/10</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #a34d70;
+  text-align: center;
+  background: linear-gradient(160deg,#fff8fa,#ffe0eb,#fff1f5);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 480px;
+  margin: auto;
+  padding: 30px 18px 45px;
+}
+
+h1 {
+  color: #d94f87;
+  font-size: 30px;
+  margin: 12px 0;
+}
+
+.subtitle {
+  line-height: 1.8;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+.scene {
+  height: 245px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin: 0 auto 18px;
+  perspective: 800px;
+}
+
+.envelope {
+  position: relative;
+  width: min(300px, 85vw);
+  height: 175px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.back {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: #f6a3c1;
+  box-shadow: 0 8px 24px #d66b9530;
+}
+
+.letter {
+  position: absolute;
+  z-index: 2;
+  left: 7%;
+  bottom: 8px;
+  width: 86%;
+  height: 145px;
+  overflow: hidden;
+  padding: 15px 5px;
+  border-radius: 8px;
+  background: #fffdf9;
+  transition: transform .9s ease, height .9s ease;
+}
+
+.letter strong {
+  display: block;
+  margin: 10px 0;
+  font-size: 22px;
+  color: #d94f87;
+}
+
+.pocket {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: #f8b4ce;
+  clip-path: polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);
+  border-radius: 0 0 8px 8px;
+}
+
+.flap {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  background: #ffd0e0;
+  clip-path: polygon(0 0,100% 0,50% 100%);
+  transform-origin: top center;
+  transition: transform .7s ease;
+}
+
+.seal {
+  position: absolute;
+  z-index: 6;
+  top: 77px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 43px;
+  height: 43px;
+  line-height: 43px;
+  font-size: 24px;
+  color: white;
+  background: #e76e9e;
+  border-radius: 50%;
+  transition: opacity .3s;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.envelope.open .seal { opacity: 0; }
+
+.envelope.open .letter {
+  transform: translateY(-115px);
+  height: 200px;
+}
+
+.hint {
+  font-size: 14px;
+  margin: 15px 0 20px;
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  50% { opacity: .55; }
+}
+
+button {
+  border: none;
+  border-radius: 30px;
+  padding: 13px 24px;
+  font-size: 15px;
+  color: white;
+  background: #e76e9e;
+  box-shadow: 0 4px 12px #d66b9530;
+  cursor: pointer;
+}
+
+#message {
+  display: none;
+  text-align: left;
+  background: #fffafd;
+  border: 1px solid #f6cbdc;
+  border-radius: 18px;
+  padding: 22px 18px;
+  margin-top: 28px;
+  line-height: 1.9;
+  box-shadow: 0 8px 24px #d66b9515;
+}
+
+#message.show {
+  display: block;
+  animation: appear .7s ease;
+}
+
+#message h2 {
+  text-align: center;
+  color: #d94f87;
+  font-size: 23px;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.signature {
+  text-align: right;
+  font-weight: bold;
+  color: #d94f87;
+  margin-top: 22px;
+}
+
+.heart {
+  position: fixed;
+  bottom: -35px;
+  z-index: 10;
+  pointer-events: none;
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0); opacity: 0; }
+  15% { opacity: .9; }
+  100% { transform: translateY(-110vh) rotate(40deg); opacity: 0; }
+}
+
+.footer {
+  margin-top: 28px;
+  font-size: 12px;
+  color: #bd8098;
+}
+
+@media(max-width:360px) {
+  h1 { font-size: 26px; }
+  #message { padding: 17px 13px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<main class="container">
+
+  <div style="font-size:34px">🌷 💗 🌷</div>
+
+  <h1>Gửi Mẹ Yêu</h1>
+
+  <div class="subtitle">
+    Chúc mừng ngày Phụ nữ Việt Nam<br>
+    <strong>20 tháng 10</strong><br>
+    Một món quà nhỏ từ trái tim con 💕
+  </div>
+
+  <div class="scene">
+    <div class="envelope" id="envelope"
+         role="button" tabindex="0"
+         aria-label="Chạm để mở phong bì">
+      <div class="back"></div>
+
+      <div class="letter">
+        <div style="font-size:28px">💌</div>
+        <strong>Mẹ yêu của con</strong>
+        <span style="font-size:12px">
+          Lá thư nhỏ chứa ngàn lời yêu thương...
+        </span>
+      </div>
+
+      <div class="pocket"></div>
+      <div class="flap"></div>
+      <div class="seal">♥</div>
+    </div>
+  </div>
+
+  <div class="hint" id="hint">
+    👆 Chạm vào phong bì để mở thư nhé!
+  </div>
+
+  <button id="openButton">💌 Mở thư yêu thương</button>
+
+  <section id="message">
+    <h2>💗 Mẹ yêu của con! 💗</h2>
+
+    <p>
+      Nhân ngày 20/10, con chúc mẹ luôn mạnh khỏe,
+      bình an, vui vẻ và lúc nào cũng nở nụ cười thật tươi.
+    </p>
+
+    <p>
+      Con biết mẹ đã vất vả rất nhiều vì gia đình và vì con.
+      Có thể đôi khi con chưa ngoan, chưa biết nói những
+      lời yêu thương, nhưng trong lòng con luôn yêu mẹ rất nhiều.
+    </p>
+
+    <p>
+      Con cảm ơn mẹ vì đã luôn chăm sóc, chở che và ở bên con.
+      Cảm ơn mẹ vì những bữa cơm, những lời dặn dò và cả
+      những hy sinh thầm lặng mà có lẽ con chưa từng hiểu hết.
+    </p>
+
+    <p>
+      Con chỉ mong mẹ luôn khỏe mạnh, hạnh phúc,
+      ít lo nghĩ và có thật nhiều niềm vui.
+      Mẹ hãy nhớ chăm sóc bản thân mình nữa nhé!
+    </p>
+
+    <p>
+      Sau này dù con có lớn đến đâu, mẹ vẫn luôn là
+      người đặc biệt nhất trong trái tim con.
+      Con sẽ cố gắng trưởng thành để mẹ tự hào và yên lòng.
+    </p>
+
+    <p style="text-align:center;color:#d94f87;font-weight:bold">
+      🌷 Chúc mẹ ngày 20/10 thật hạnh phúc! 🌷<br>
+      Con yêu mẹ nhiều lắm! 💋💗
+    </p>
+
+    <div class="signature">Con của mẹ ❤️</div>
+  </section>
+
+  <div class="footer">
+    Một món quà nhỏ, ngàn lời yêu thương dành cho mẹ 💕
+  </div>
+</main>
+
+<script>
+(function () {
+  var envelope = document.getElementById("envelope");
+  var button = document.getElementById("openButton");
+  var message = document.getElementById("message");
+  var hint = document.getElementById("hint");
+  var opened = false;
+
+  function createHeart() {
+    var heart = document.createElement("span");
+    var symbols = ["💗","💕","💖","💞","🌸","♡"];
+
+    heart.className = "heart";
+    heart.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    heart.style.left = Math.random() * 95 + "vw";
+    heart.style.fontSize = (16 + Math.random() * 14) + "px";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function () {
+      heart.remove();
+    }, 6500);
+  }
+
+  function openLetter() {
+    if (opened) {
+      message.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+      return;
+    }
+
+    opened = true;
+    envelope.classList.add("open");
+    message.classList.add("show");
+
+    hint.textContent = "💗 Lá thư yêu thương dành riêng cho mẹ!";
+    button.textContent = "💖 Xem lại lời chúc";
+
+    for (var i = 0; i < 18; i++) {
+      setTimeout(createHeart, i * 130);
+    }
+
+    setTimeout(function () {
+      message.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }, 500);
+  }
+
+  envelope.addEventListener("click", openLetter);
+  button.addEventListener("click", openLetter);
+
+  envelope.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openLetter();
+    }
+  });
+})();
+</script>
+</body>
+</html>
